@@ -35,16 +35,9 @@ sudo apt-get install mininet -y
 
 # Install Docker
 sudo apt-get update
-sudo su
-apt-get update && apt-get install -y lsb-release && apt-get clean all
+sudo apt-get update && apt-get install -y lsb-release && apt-get clean all
 sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-
-# Pull from research repo
-cd ..
-sudo git clone https://github.com/coalvoltage/SDN_2021_Summer_Research.git
-cd SDN_2021_Summer_Research
-sudo apt install maven -y
+sudo apt-get install docker-ce docker-ce-cli containerd.io maven -y
