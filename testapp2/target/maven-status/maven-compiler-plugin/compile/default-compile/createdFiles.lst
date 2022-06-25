@@ -1,0 +1,5 @@
+org/NC4/testapp2/OsgiPropertyConstants.class
+org/NC4/testapp2/AppComponent.class
+org/NC4/testapp2/AppComponent$CustomPacketProcessor.class
+org/NC4/testapp2/AppComponent$CustomTopologyListener.class
+org/NC4/testapp2/SomeInterface.class
