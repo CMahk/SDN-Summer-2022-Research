@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Get full list of packages
 sudo apt update && sudo apt upgrade -y
 
@@ -28,7 +30,7 @@ echo 'export ONOS_ROOT="`pwd`"' >> $HOME/.bashrc
 echo 'source $ONOS_ROOT/tools/dev/bash_profile'
 
 # Run Bazel to build ONOS
-bazel build onos
+#bazel build onos
 
 # Install Mininet
 sudo apt-get install mininet -y
@@ -38,6 +40,6 @@ sudo apt-get update
 sudo apt-get update && apt-get install -y lsb-release && apt-get clean all
 sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io maven -y
