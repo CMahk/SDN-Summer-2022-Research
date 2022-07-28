@@ -37,12 +37,13 @@ sudo apt-get install mininet -y
 
 # Install Docker
 sudo apt-get update
-sudo apt-get update && apt-get install -y lsb-release && apt-get clean all
-sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
+sudo apt-get install ca-certificates curl gnupg lsb-release
+sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo chmod a+r /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io maven -y
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin maven -y
 
 # Install additional programs for ease of use
 sudo apt-get install -y sshpass chromium-browser
