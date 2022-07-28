@@ -12,16 +12,16 @@ pip3 install --upgrade pip
 pip3 install selenium
 
 # Clone ONOS and use version 2.5.0
-git clone https://gerrit.onosproject.org/onos
-cd onos
-git fetch
-git checkout 2.5.0
+#git clone https://gerrit.onosproject.org/onos
+#cd onos
+#git fetch
+#git checkout 2.5.0
 
 # Install Bazel version 3.0.0 for ONOS 2.5.0
 sudo apt install g++ unzip zip -y
-wget https://github.com/bazelbuild/bazel/releases/download/3.0.0/bazel-3.0.0-installer-linux-x86_64.sh
-chmod +x bazel-3.0.0-installer-linux-x86_64.sh
-./bazel-3.0.0-installer-linux-x86_64.sh --user
+#wget https://github.com/bazelbuild/bazel/releases/download/3.0.0/bazel-3.0.0-installer-linux-x86_64.sh
+#chmod +x bazel-3.0.0-installer-linux-x86_64.sh
+#./bazel-3.0.0-installer-linux-x86_64.sh --user
 
 # Add environment variables for Bazel and ONOS
 export PATH="$HOME/bin:$PATH"
@@ -43,3 +43,6 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io maven -y
+
+# Install additional programs for ease of use
+sudo apt-get install -y sshpass chromium-browser
