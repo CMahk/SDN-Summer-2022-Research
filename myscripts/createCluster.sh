@@ -45,5 +45,21 @@ ONOS_INSTANCES="$OC1 $OC2 $OC3"
 
 waitForStart
 
-echo "Activating OpenFlow and ProxyARP applications..."
-sshpass -p "karaf" ssh -o StrictHostKeyChecking=no -p 8101 karaf@172.17.0.5
+echo "Activating applications..."
+
+OC_COMMAND="app activate org.onosproject.openflow proxyarp layout fwd"
+
+echo "Activating for $OC1"
+sudo ssh-keygen -f "/root/.ssh/known_hosts" -R "[$OC1]:8101"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "[$OC1]:8101"
+sshpass -p "karaf" ssh -o StrictHostKeyChecking=no -p 8101 karaf@"$OC1" "$OC_COMMAND"
+
+echo "Activating for $OC2"
+sudo ssh-keygen -f "/root/.ssh/known_hosts" -R "[$OC2]:8101"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "[$OC2]:8101"
+sshpass -p "karaf" ssh -o StrictHostKeyChecking=no -p 8101 karaf@"$OC2" "$OC_COMMAND"
+
+echo "Activating for $OC3"
+sudo ssh-keygen -f "/root/.ssh/known_hosts" -R "[$OC3]:8101"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "[$OC3]:8101"
+sshpass -p "karaf" ssh -o StrictHostKeyChecking=no -p 8101 karaf@"$OC3" "$OC_COMMAND"
