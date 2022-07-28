@@ -46,4 +46,4 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin maven -y
 
 # Install additional programs for ease of use
-sudo apt-get install -y sshpass chromium-browser
+sudo apt-get install -y sshpass chromium-browser wireshark
