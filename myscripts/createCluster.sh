@@ -6,7 +6,7 @@ SSH_KEY=$(cut -d\  -f2 ~/.ssh/id_rsa.pub)
 cp -R ./mahk_config ../../config
 
 # Create Atomix cluster using Atomix docker image
-ATOMIX_IMAGE=atomix/atomix:3.0.10
+ATOMIX_IMAGE=atomix/atomix:3.1.5
 for i in {1..3}; do
     echo "Setting up atomix-$i..."
     docker container run --detach --name atomix-$i --hostname atomix-$i \
@@ -15,7 +15,7 @@ for i in {1..3}; do
 done
 
 # Create ONOS cluster using ONOS docker image
-ONOS_IMAGE=onosproject/onos:1.15.0
+ONOS_IMAGE=onosproject/onos:2.7.0
 for i in {1..3}; do
     echo "Setting up onos-$i..."
     docker container run --detach --name onos-$i --hostname onos-$i --restart=always $ONOS_IMAGE
