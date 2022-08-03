@@ -6,7 +6,7 @@ ONOS_IMAGE=onosproject/onos:2.7.0
 
 echo "Setting up onos-$1"
 docker container run --detach --name onos-$1 --hostname onos-$1 --restart=always $ONOS_IMAGE
-docker exec -i onos-$1 /bin/bash -c "mkdir config; cat > config/cluster.json" < $HOME/config/cluster-$1.json
+docker exec -i onos-$1 /bin/bash -c "mkdir config; cat > config/cluster.json" < /mydata/config/cluster-$1.json
 docker exec -it onos-$1 bin/onos-user-key sdn $SSH_KEY  >/dev/null 2>&1
 docker exec -it onos-$1 bin/onos-user-password onos rocks >/dev/null 2>&1
 
