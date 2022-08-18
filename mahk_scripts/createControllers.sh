@@ -10,7 +10,7 @@ ATOMIX_IMAGE=atomix/atomix:3.1.5
 for i in {1..3}; do
     echo "Setting up atomix-$i..."
     docker container run --detach --name atomix-$i --hostname atomix-$i \
-        --restart=always -v /mydata/config/mahk_config:/atomix $ATOMIX_IMAGE \
+        --restart=always -v /mydata/config:/atomix $ATOMIX_IMAGE \
         --config /atomix/atomix-$i.conf
 done
 
@@ -19,7 +19,7 @@ ONOS_IMAGE=onosproject/onos:2.7.0
 for i in {1..3}; do
     echo "Setting up onos-$i..."
     docker container run --detach --name onos-$i --hostname onos-$i --restart=always $ONOS_IMAGE
-    docker exec -i onos-$i /bin/bash -c "mkdir config; cat > config/cluster.json" < /mydata/config/mahk_config/cluster-$i.json
+    docker exec -i onos-$i /bin/bash -c "mkdir config; cat > config/cluster.json" < /mydata/config/cluster-$i.json
     docker exec -it onos-$i bin/onos-user-key sdn $SSH_KEY  >/dev/null 2>&1
     docker exec -it onos-$i bin/onos-user-password onos rocks >/dev/null 2>&1
 done
