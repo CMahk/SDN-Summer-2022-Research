@@ -11,17 +11,19 @@ sudo apt install python3-pip python3-dev python3-setuptools -y
 pip3 install --upgrade pip
 pip3 install selenium
 
-# Clone ONOS and use version 2.5.0
-#git clone https://gerrit.onosproject.org/onos
-#cd onos
-#git fetch
-#git checkout 2.5.0
+# Clone ONOS and use version 2.7.0
+git clone https://gerrit.onosproject.org/onos
+cd onos
+git fetch
+git checkout 2.7.0
 
 # Install Bazel version 3.0.0 for ONOS 2.5.0
 sudo apt install g++ unzip zip -y
-#wget https://github.com/bazelbuild/bazel/releases/download/3.0.0/bazel-3.0.0-installer-linux-x86_64.sh
-#chmod +x bazel-3.0.0-installer-linux-x86_64.sh
-#./bazel-3.0.0-installer-linux-x86_64.sh --user
+sudo wget https://github.com/bazelbuild/bazelisk/releases/download/v1.4.0/bazelisk-linux-amd64
+sudo chmod +x bazelisk-linux-amd64
+sudo mv bazelisk-linux-amd64 /usr/local/bin/bazel
+sudo bazel version
+sudo sed -i -e '22s/$/ --no-same-user/' ./onos/tools/package/onos-prep-karaf
 
 # Add environment variables for Bazel and ONOS
 export PATH="$HOME/bin:$PATH"
@@ -30,7 +32,7 @@ echo 'export ONOS_ROOT="`pwd`"' >> $HOME/.bashrc
 echo 'source $ONOS_ROOT/tools/dev/bash_profile'
 
 # Run Bazel to build ONOS
-#bazel build onos
+bazel build onos
 
 # Install Mininet
 sudo apt-get install mininet -y
