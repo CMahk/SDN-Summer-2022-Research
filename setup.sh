@@ -23,7 +23,7 @@ sudo wget https://github.com/bazelbuild/bazelisk/releases/download/v1.4.0/bazeli
 sudo chmod +x bazelisk-linux-amd64
 sudo mv bazelisk-linux-amd64 /usr/local/bin/bazel
 sudo bazel version
-sudo sed -i -e '22s/$/ --no-same-user/' ./onos/tools/package/onos-prep-karaf
+sudo sed -i -e '22s/$/ --no-same-owner/' ./onos/tools/package/onos-prep-karaf
 
 # Add environment variables for Bazel and ONOS
 export PATH="$HOME/bin:$PATH"
