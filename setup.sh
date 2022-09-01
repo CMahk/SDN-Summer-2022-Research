@@ -9,7 +9,7 @@ sudo apt install python-pip python-dev python-setuptools -y
 sudo apt install python3 -y
 sudo apt install python3-pip python3-dev python3-setuptools -y
 pip3 install --upgrade pip
-pip3 install selenium
+pip3 install selenium numpy
 
 # Clone ONOS and use version 2.7.0
 git clone https://gerrit.onosproject.org/onos
