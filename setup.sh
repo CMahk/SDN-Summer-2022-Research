@@ -17,7 +17,7 @@ cd onos
 git fetch
 git checkout 2.7.0
 
-# Install Bazel version 3.0.0 for ONOS 2.5.0
+# Install Bazelisk to automatically determine Bazel version to build ONOS with
 sudo apt install g++ unzip zip -y
 sudo wget https://github.com/bazelbuild/bazelisk/releases/download/v1.4.0/bazelisk-linux-amd64
 sudo chmod +x bazelisk-linux-amd64
