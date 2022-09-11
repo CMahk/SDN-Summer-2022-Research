@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Destroy the ONOS cluster running as docker images
-for i in {1..3}; do
+for i in {1..5}; do
     echo "Destroying onos-$i..."
     docker stop onos-$i
 done
