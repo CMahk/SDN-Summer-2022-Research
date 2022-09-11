@@ -2,6 +2,6 @@
 
 echo "Start: $(date +"%T.%3N")"
 
-sudo docker stop $1
+sudo docker start $1
 
 echo "End: $(date +"%T.%3N")"
