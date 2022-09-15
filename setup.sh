@@ -48,9 +48,10 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin maven -y
 
 # Install additional programs for ease of use
-sudo apt-get install -y sshpass chromium-browser wireshark
+sudo apt-get install -y sshpass firefox wireshark
 
 # Install noVNC and setup for access
+cd ..
 sudo git clone https://github.com/novnc/noVNC.git
 mkdir /home/$USER/.vnc
 echo "password" | vncpasswd -f > /home/$USER/.vnc/passwd
