@@ -3,6 +3,8 @@
 """
 Create a network where different switches are connected to
 different controllers, by creating a custom Switch() subclass.
+Grabbed this script from here: https://github.com/mininet/mininet/tree/master/examples/controllers.py
+Also consider taking a look at the ONOS implementation of this: https://github.com/opennetworkinglab/onos/tree/master/tools/dev/mininet
 """
 
 from mininet.net import Mininet
@@ -13,7 +15,7 @@ from mininet.cli import CLI
 
 setLogLevel( 'info' )
 
-# Two local and one "external" controller (which is actually c0)
+# Three external controllers
 # Ignore the warning message that the remote isn't (yet) running
 c0 = RemoteController( 'c0', ip='172.17.0.5', port=6633 )
 c1 = RemoteController( 'c1', ip='172.17.0.6', port=6633 )
