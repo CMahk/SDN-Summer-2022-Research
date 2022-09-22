@@ -13,6 +13,7 @@ This repository includes the following:
 ## What was Done?
 - [x] Added multi-controller functionality and inter-controller communication via Mininet
 - [x] Changed from the Heartbeat protocol to the SWIM protocol to increase controller failure detection at a more reliable rate
+  * Heartbeat protocol defaulted to 12 seconds before failure detection, while the SWIM protocol reduced this to only 4 seconds before failure detection
 
 ## What is Next?
 - [ ] Controllers take 8 seconds after detecting a failure to take over for the failed controller. How can we decrease the time this takes?
